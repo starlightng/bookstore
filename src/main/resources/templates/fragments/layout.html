@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="header" class="site-header">
+    <div class="container nav">
+        <a class="brand" th:href="@{/}">📚 Page Turner Books</a>
+        <nav>
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/books}">Catalogue</a>
+            <a th:href="@{/about}">About</a>
+        </nav>
+    </div>
+</header>
+
+<footer th:fragment="footer" class="site-footer">
+    <div class="container">&copy; 2026 Page Turner Books. Built with Spring Boot.</div>
+</footer>
+
+<article th:fragment="bookCard(book)" class="card">
+    <span class="tag" th:text="${book.category}">Category</span>
+    <h3><a th:href="@{/books/{id}(id=${book.id})}" th:text="${book.title}">Title</a></h3>
+    <p class="muted" th:text="${book.author}">Author</p>
+    <p class="price" th:text="'$' + ${#numbers.formatDecimal(book.price, 1, 'COMMA', 2, 'POINT')}">$0.00</p>
+</article>
+</body>
+</html>

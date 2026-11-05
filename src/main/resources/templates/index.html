@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page Turner Books</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/layout :: header}"></div>
+
+<section class="hero">
+    <div class="container">
+        <h1>Find your next great read</h1>
+        <p>Fiction, technology, history and more, all in one place.</p>
+        <form th:action="@{/books}" method="get" class="search">
+            <input type="text" name="q" placeholder="Search by title, author or category">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</section>
+
+<main class="container">
+    <h2>Featured books</h2>
+    <div class="grid">
+        <div th:each="book : ${featured}" th:replace="~{fragments/layout :: bookCard(${book})}"></div>
+    </div>
+    <p><a class="button" th:href="@{/books}">Browse the full catalogue &rarr;</a></p>
+</main>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+</body>
+</html>

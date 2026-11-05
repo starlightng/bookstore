@@ -1,0 +1,16 @@
+[Unit]
+Description=Page Turner Books (Spring Boot)
+After=network.target
+
+[Service]
+User=bookstore
+Group=bookstore
+WorkingDirectory=/opt/bookstore
+Environment=SERVER_PORT=8088
+ExecStart=/usr/bin/java -jar /opt/bookstore/bookstore.jar
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

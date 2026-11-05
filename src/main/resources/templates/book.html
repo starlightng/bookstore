@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${book.title} + ' | Page Turner Books'">Book</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/layout :: header}"></div>
+
+<main class="container detail">
+    <a th:href="@{/books}">&larr; Back to catalogue</a>
+    <p><span class="tag" th:text="${book.category}">Category</span></p>
+    <h1 th:text="${book.title}">Title</h1>
+    <p class="muted">by <strong th:text="${book.author}">Author</strong> &middot; <span th:text="${book.year}">2000</span></p>
+    <p th:text="${book.description}">Description</p>
+    <p class="price big" th:text="'$' + ${#numbers.formatDecimal(book.price, 1, 'COMMA', 2, 'POINT')}">$0.00</p>
+    <button type="button" disabled>Add to cart (coming soon)</button>
+</main>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+</body>
+</html>

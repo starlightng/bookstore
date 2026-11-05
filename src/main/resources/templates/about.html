@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | Page Turner Books</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/layout :: header}"></div>
+
+<main class="container">
+    <h1>About us</h1>
+    <p>Page Turner Books is a small independent bookstore demo application. It exists to
+       show a minimal Spring Boot, Thymeleaf and Maven project with a handful of linked pages.</p>
+    <p><a class="button" th:href="@{/books}">See what we stock</a></p>
+</main>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+</body>
+</html>
