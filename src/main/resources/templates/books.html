@@ -19,7 +19,9 @@
     <p th:if="${#lists.isEmpty(books)}" class="muted">No books matched your search.</p>
 
     <div class="grid">
-        <div th:each="book : ${books}" th:replace="~{fragments/layout :: bookCard(${book})}"></div>
+        <th:block th:each="book : ${books}">
+            <div th:replace="~{fragments/layout :: bookCard(book=${book})}"></div>
+        </th:block>
     </div>
 </main>
 

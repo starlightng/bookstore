@@ -23,7 +23,9 @@
 <main class="container">
     <h2>Featured books</h2>
     <div class="grid">
-        <div th:each="book : ${featured}" th:replace="~{fragments/layout :: bookCard(${book})}"></div>
+        <th:block th:each="book : ${featured}">
+            <div th:replace="~{fragments/layout :: bookCard(book=${book})}"></div>
+        </th:block>
     </div>
     <p><a class="button" th:href="@{/books}">Browse the full catalogue &rarr;</a></p>
 </main>
